@@ -111,6 +111,7 @@ echo
 
 if [[ "$SHA_SRC" == "$SHA_DST" ]]; then
   echo "RESULTADO: OK — El disco ha pasado el test de superficie para ${TEST_GIB} GiB."
+  echo "USBLAB_RESULT: {\"result\":\"ok\",\"test\":\"surface\",\"cycles_ok\":1,\"speed_gen_mb_s\":${GEN_SPEED},\"speed_copy_mb_s\":${CP_SPEED}}"
 else
   echo "RESULTADO: ERROR — Corrupción detectada en el test de superficie."
 fi

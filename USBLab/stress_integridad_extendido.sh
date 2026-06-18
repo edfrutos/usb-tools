@@ -111,6 +111,7 @@ echo "=============================================="
 echo "RESULTADO GLOBAL: TODOS LOS CICLOS OK."
 echo "La unidad ha pasado el stress test de integridad."
 echo "=============================================="
+echo "USBLAB_RESULT: {\"result\":\"ok\",\"test\":\"stress\",\"cycles_ok\":${CYCLES},\"speed_gen_mb_s\":${GEN_SPEED},\"speed_copy_mb_s\":${CP_SPEED}}"
 echo
 read -r -p "¿Borrar los archivos stress_*.bin del volumen? [yes/NO] " RESP
 if [[ "$RESP" == "yes" ]]; then
