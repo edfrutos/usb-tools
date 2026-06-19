@@ -1,32 +1,23 @@
-//
-//  USBLabApp.swift
-//  USBLab
-//
-//  Created by Eugenio de Frutos Sanchez on 9/12/25.
-//
-
 import SwiftUI
-import SwiftData
 
 @main
 struct USBLabApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @State private var showingAbout = false
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .sheet(isPresented: $showingAbout) {
+                    AboutView(showing: $showingAbout)
+                }
         }
-        .modelContainer(sharedModelContainer)
+        .commands {
+            // Reemplaza el menú estándar "About"
+            CommandGroup(replacing: .appInfo) {
+                Button("Acerca de USBLab") {
+                    showingAbout = true
+                }
+            }
+        }
     }
 }

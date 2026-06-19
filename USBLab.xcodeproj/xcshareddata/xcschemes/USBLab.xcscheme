@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "2650"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;# Copia autom&#xe1;tica de la build Release a ~/Applications (post-build)&#10;&#10;APP_NAME=&quot;USBLab.app&quot;&#10;&#10;if [ &quot;$CONFIGURATION&quot; != &quot;Release&quot; ]; then&#10;  echo &quot;Configuraci&#xf3;n actual no es Release, no se copia.&quot;&#10;  exit 0&#10;fi&#10;&#10;SRC=&quot;${BUILT_PRODUCTS_DIR}/${APP_NAME}&quot;&#10;DEST_DIR=&quot;${HOME}/Applications&quot;&#10;DEST=&quot;${DEST_DIR}/${APP_NAME}&quot;&#10;&#10;if [ ! -d &quot;$SRC&quot; ]; then&#10;  echo &quot;No se encuentra la app en: $SRC&quot;&#10;  exit 1&#10;fi&#10;&#10;# Crear ~/Applications si no existe&#10;mkdir -p &quot;$DEST_DIR&quot;&#10;&#10;echo &quot;Copiando $SRC a $DEST ...&quot;&#10;&#10;# Elimina versi&#xf3;n anterior (si existe)&#10;if [ -d &quot;$DEST&quot; ]; then&#10;  rm -rf &quot;$DEST&quot;&#10;fi&#10;&#10;# Copia la nueva&#10;cp -R &quot;$SRC&quot; &quot;$DEST_DIR/&quot; || {&#10;  echo &quot;ERROR: fallo al copiar la app.&quot;&#10;  exit 1&#10;}&#10;&#10;echo &quot;Copia completada en ~/Applications.&quot;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "69D986942EE89B61004E7CC3"
+                     BuildableName = "USBLab.app"
+                     BlueprintName = "USBLab"
+                     ReferencedContainer = "container:USBLab.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "69D986942EE89B61004E7CC3"
+               BuildableName = "USBLab.app"
+               BlueprintName = "USBLab"
+               ReferencedContainer = "container:USBLab.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "69D986A32EE89B62004E7CC3"
+               BuildableName = "USBLabTests.xctest"
+               BlueprintName = "USBLabTests"
+               ReferencedContainer = "container:USBLab.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "69D986AD2EE89B62004E7CC3"
+               BuildableName = "USBLabUITests.xctest"
+               BlueprintName = "USBLabUITests"
+               ReferencedContainer = "container:USBLab.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Release"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "69D986942EE89B61004E7CC3"
+            BuildableName = "USBLab.app"
+            BlueprintName = "USBLab"
+            ReferencedContainer = "container:USBLab.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "69D986942EE89B61004E7CC3"
+            BuildableName = "USBLab.app"
+            BlueprintName = "USBLab"
+            ReferencedContainer = "container:USBLab.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

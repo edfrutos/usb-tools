@@ -158,7 +158,7 @@ struct VolumePickerView: View {
                 .volumeIsEjectableKey
             ]
             let urls = FileManager.default.mountedVolumeURLs(
-                includingPropertiesForKeys: keys,
+                includingResourceValuesForKeys: keys,
                 options: [.skipHiddenVolumes]
             ) ?? []
 
