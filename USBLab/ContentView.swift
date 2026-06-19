@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var lastResult: TestResult? = nil   // T2.2 – último resultado JSON
     @State private var envReady: Bool = false
     @State private var showingDiskInfo: Bool = false
+    @State private var showingVolumePicker: Bool = false
 
     private let scriptNames = [
         "usb_lab_test.sh",
@@ -72,6 +73,12 @@ struct ContentView: View {
                         Text("Volumen:")
                         TextField("/Volumes/USB_Limpio", text: $volumePath)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                        Button {
+                            showingVolumePicker = true
+                        } label: {
+                            Image(systemName: "externaldrive.fill.badge.plus")
+                        }
+                        .help("Seleccionar volumen montado")
                     }
                     HStack {
                         Text("Tamaño pequeño (GiB):")
@@ -185,6 +192,9 @@ struct ContentView: View {
         .onAppear { setupEnvironmentIfNeeded() }
         .sheet(isPresented: $showingDiskInfo) {
             DiskInfoView(showing: $showingDiskInfo, initialInput: volumePath)
+        }
+        .sheet(isPresented: $showingVolumePicker) {
+            VolumePickerView(selectedPath: $volumePath, showing: $showingVolumePicker)
         }
     }
 
